@@ -51,9 +51,6 @@ the target, `random_state = 2026`. The 114-row test split is exported as
 
 > 🔗 **Repository:** https://github.com/bhardwaj1997/2026aj056425_ml_assigment
 
-_(Replace `<your-github-username>` with your actual GitHub username after you push
-the project.)_
-
 **Repository structure**
 
 ```
@@ -73,7 +70,6 @@ ml-classification-assignment/
 ```
 
 > 🔴 **Live Streamlit App:** https://2026aj056425mlassigment.streamlit.app
-> _(Fill in after deploying on Streamlit Community Cloud.)_
 
 ---
 
