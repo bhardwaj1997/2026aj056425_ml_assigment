@@ -133,7 +133,7 @@ def main():
         )
         st.subheader("Reference metrics (held-out test set)")
         st.dataframe(
-            pd.DataFrame(metadata["metrics"]).T.style.format("{:.4f}"),
+            pd.DataFrame(metadata["metrics"]).T.round(4),
             use_container_width=True,
         )
         return
