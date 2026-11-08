@@ -25,16 +25,16 @@ The goal of this project is to:
 
 ## b. Dataset Description
 
-| Property | Value |
-|---|---|
-| Name | Breast Cancer Wisconsin (Diagnostic) |
-| Source | UCI ML Repository / `sklearn.datasets.load_breast_cancer` |
-| Task | Binary classification |
-| Instances | **569** (≥ 500 required) |
-| Features | **30** numeric (≥ 12 required) |
-| Target | `diagnosis` → `0` = malignant, `1` = benign |
-| Class balance | 212 malignant / 357 benign |
-| Missing values | None |
+| Property       | Value                                                     |
+| -------------- | --------------------------------------------------------- |
+| Name           | Breast Cancer Wisconsin (Diagnostic)                      |
+| Source         | UCI ML Repository / `sklearn.datasets.load_breast_cancer` |
+| Task           | Binary classification                                     |
+| Instances      | **569** (≥ 500 required)                                  |
+| Features       | **30** numeric (≥ 12 required)                            |
+| Target         | `diagnosis` → `0` = malignant, `1` = benign               |
+| Class balance  | 212 malignant / 357 benign                                |
+| Missing values | None                                                      |
 
 The 30 features are derived from ten real-valued characteristics of each cell
 nucleus (radius, texture, perimeter, area, smoothness, compactness, concavity,
@@ -49,10 +49,10 @@ the target, `random_state = 2026`. The 114-row test split is exported as
 
 ## c. GitHub Repository Link
 
-> 🔗 **Repository:** https://github.com/<your-github-username>/ml-classification-assignment
+> 🔗 **Repository:** https://github.com/bhardwaj1997/2026aj056425_ml_assigment
 
-*(Replace `<your-github-username>` with your actual GitHub username after you push
-the project.)*
+_(Replace `<your-github-username>` with your actual GitHub username after you push
+the project.)_
 
 **Repository structure**
 
@@ -72,8 +72,8 @@ ml-classification-assignment/
     └── metadata.joblib     # feature names, class names, cached metrics
 ```
 
-> 🔴 **Live Streamlit App:** https://<your-app-name>.streamlit.app
-> *(Fill in after deploying on Streamlit Community Cloud.)*
+> 🔴 **Live Streamlit App:** https://2026aj056425mlassigment.streamlit.app
+> _(Fill in after deploying on Streamlit Community Cloud.)_
 
 ---
 
@@ -93,13 +93,13 @@ applied identically at train and inference time.
 
 Metrics are computed on the held-out **test set** (114 rows).
 
-| ML Model Name | Accuracy | AUC | Precision | Recall | F1 | MCC |
-|---|---|---|---|---|---|---|
-| Logistic Regression | 0.9737 | 0.9927 | 0.9726 | 0.9861 | 0.9793 | 0.9433 |
-| Decision Tree | 0.9298 | 0.9395 | 0.9848 | 0.9028 | 0.9420 | 0.8588 |
-| KNN | 0.9649 | 0.9947 | 0.9595 | 0.9861 | 0.9726 | 0.9245 |
-| Naive Bayes | 0.9211 | 0.9848 | 0.9565 | 0.9167 | 0.9362 | 0.8341 |
-| Support Vector Machine | 0.9649 | 0.9960 | 0.9857 | 0.9583 | 0.9718 | 0.9260 |
+| ML Model Name          | Accuracy | AUC    | Precision | Recall | F1     | MCC    |
+| ---------------------- | -------- | ------ | --------- | ------ | ------ | ------ |
+| Logistic Regression    | 0.9737   | 0.9927 | 0.9726    | 0.9861 | 0.9793 | 0.9433 |
+| Decision Tree          | 0.9298   | 0.9395 | 0.9848    | 0.9028 | 0.9420 | 0.8588 |
+| KNN                    | 0.9649   | 0.9947 | 0.9595    | 0.9861 | 0.9726 | 0.9245 |
+| Naive Bayes            | 0.9211   | 0.9848 | 0.9565    | 0.9167 | 0.9362 | 0.8341 |
+| Support Vector Machine | 0.9649   | 0.9960 | 0.9857    | 0.9583 | 0.9718 | 0.9260 |
 
 > AUC uses predicted class probabilities (or the SVM decision-function scores) for
 > the positive class. All metrics are reproducible by running
@@ -107,13 +107,13 @@ Metrics are computed on the held-out **test set** (114 rows).
 
 ### Observations
 
-| ML Model Name | Observation about model performance |
-|---|---|
-| **Logistic Regression** | Best overall performer — highest Accuracy (0.9737), F1 (0.9793) and MCC (0.9433). The classes are nearly linearly separable after standardization, so a linear boundary generalizes extremely well. Its high recall (0.9861) means very few malignant tumours are missed, which is exactly what matters clinically. |
-| **Decision Tree** | Weakest on ranking (AUC 0.9395) and the lowest F1 among the top models. It has the highest precision (0.9848) but noticeably lower recall (0.9028), i.e. it misses more malignant cases. A single tree uses axis-aligned splits and tends to overfit/underfit relative to smoother models, even when depth is capped at 5. |
-| **KNN** | Strong and well-balanced — joint-best recall (0.9861) and a very high AUC (0.9947). Distance-weighted voting over `k=7` neighbours in the scaled feature space works well because similar tumours cluster together. Precision is slightly lower, producing a few more false positives. |
-| **Naive Bayes** | Lowest Accuracy (0.9211) and MCC (0.8341). The conditional-independence assumption is strongly violated here (radius, perimeter and area are highly correlated), which hurts hard predictions. Interestingly its AUC stays high (0.9848), showing it still ranks cases well even when its probability calibration is off. |
-| **Support Vector Machine** | A very close second to Logistic Regression — the **best AUC (0.9960)** and the best precision among high-recall models (0.9857), with a strong MCC (0.9260). The RBF kernel captures mild non-linearities in the decision boundary, trading a little recall for very clean positive predictions. |
+| ML Model Name                         | Observation about model performance                                                                                                                                                                                                                                                                                          |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Logistic Regression**               | Best overall performer — highest Accuracy (0.9737), F1 (0.9793) and MCC (0.9433). The classes are nearly linearly separable after standardization, so a linear boundary generalizes extremely well. Its high recall (0.9861) means very few malignant tumours are missed, which is exactly what matters clinically.          |
+| **Decision Tree**                     | Weakest on ranking (AUC 0.9395) and the lowest F1 among the top models. It has the highest precision (0.9848) but noticeably lower recall (0.9028), i.e. it misses more malignant cases. A single tree uses axis-aligned splits and tends to overfit/underfit relative to smoother models, even when depth is capped at 5.   |
+| **KNN**                               | Strong and well-balanced — joint-best recall (0.9861) and a very high AUC (0.9947). Distance-weighted voting over `k=7` neighbours in the scaled feature space works well because similar tumours cluster together. Precision is slightly lower, producing a few more false positives.                                       |
+| **Naive Bayes**                       | Lowest Accuracy (0.9211) and MCC (0.8341). The conditional-independence assumption is strongly violated here (radius, perimeter and area are highly correlated), which hurts hard predictions. Interestingly its AUC stays high (0.9848), showing it still ranks cases well even when its probability calibration is off.    |
+| **Support Vector Machine**            | A very close second to Logistic Regression — the **best AUC (0.9960)** and the best precision among high-recall models (0.9857), with a strong MCC (0.9260). The RBF kernel captures mild non-linearities in the decision boundary, trading a little recall for very clean positive predictions.                             |
 | **Overall, Winner for this dataset?** | **Logistic Regression** is the winner by Accuracy, F1 and MCC, with **SVM** an extremely close runner-up (and the best AUC). For a diagnostic setting where **recall/sensitivity is paramount**, Logistic Regression and KNN tie for the best recall (0.9861), reinforcing Logistic Regression as the best all-round choice. |
 
 ---
